@@ -1,0 +1,45 @@
+{
+    "clients": [
+        {
+            "id": 1,
+            "first_name": "Іван",
+            "last_name": "Петренко",
+            "tax_id": "1234567890"
+        },
+        {
+            "id": 2,
+            "first_name": "Марія",
+            "last_name": "Коваленко",
+            "tax_id": "0987654321"
+        },
+        {
+            "id": 3,
+            "first_name": "Олег",
+            "last_name": "Вінник",
+            "tax_id": "111222333"
+        }
+    ],
+    "accounts": [
+        {
+            "id": 1,
+            "client_id": 1,
+            "currency": "UAH",
+            "balance": 14900.0
+        },
+        {
+            "id": 2,
+            "client_id": 2,
+            "currency": "USD",
+            "balance": 4500.0
+        }
+    ],
+    "transactions": [
+        {
+            "id": 1,
+            "from_account_id": 1,
+            "to_account_id": 2,
+            "amount": 100.0,
+            "timestamp": "2026-02-24T18:56:18.786034"
+        }
+    ]
+}
