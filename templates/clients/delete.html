@@ -1,0 +1,21 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<h2>{{ title }}</h2>
+<div class="alert alert-danger" role="alert">
+    <h4 class="alert-heading">Ви впевнені?</h4>
+    <p>Ви збираєтесь видалити запис про клієнта. Цю дію неможливо скасувати.</p>
+</div>
+
+<div class="card mb-3">
+    <div class="card-body">
+        <h5 class="card-title">{{ model.full_name }}</h5>
+        <p class="card-text">Податковий номер: {{ model.tax_id }}</p>
+    </div>
+</div>
+
+<form action="/clients/delete/{{ model.id }}" method="post">
+    <button type="submit" class="btn btn-danger">Видалити</button>
+    <a href="/clients" class="btn btn-secondary">Скасувати</a>
+</form>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<h2>{{ title }}</h2>
+<hr />
+
+<div class="card">
+    <div class="card-header">
+        Інформація про клієнта #{{ model.id }}
+    </div>
+    <div class="card-body">
+        <dl class="row">
+            <dt class="col-sm-3">Ім'я</dt>
+            <dd class="col-sm-9">{{ model.first_name }}</dd>
+
+            <dt class="col-sm-3">Прізвище</dt>
+            <dd class="col-sm-9">{{ model.last_name }}</dd>
+
+            <dt class="col-sm-3">ІПН</dt>
+            <dd class="col-sm-9">{{ model.tax_id }}</dd>
+        </dl>
+    </div>
+    <div class="card-footer text-muted">
+        <a href="/clients/edit/{{ model.id }}" class="btn btn-warning">Редагувати</a>
+        <a href="/clients" class="btn btn-outline-secondary">Назад до списку</a>
+    </div>
+</div>
+{% endblock %}

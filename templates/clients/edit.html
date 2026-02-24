@@ -1,0 +1,34 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<h2>{{ title }}</h2>
+<hr />
+
+<div class="row">
+    <div class="col-md-6">
+        <form action="/clients/edit/{{ model.id }}" method="post">
+            <input type="hidden" name="id" value="{{ model.id }}">
+
+            <div class="mb-3">
+                <label for="first_name" class="form-label">Ім'я</label>
+                <input type="text" class="form-control" id="first_name" name="first_name" value="{{ model.first_name }}" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="last_name" class="form-label">Прізвище</label>
+                <input type="text" class="form-control" id="last_name" name="last_name" value="{{ model.last_name }}" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="tax_id" class="form-label">ІПН</label>
+                <input type="text" class="form-control" id="tax_id" name="tax_id" value="{{ model.tax_id }}" required>
+            </div>
+
+            <div class="form-group mt-3">
+                <button type="submit" class="btn btn-primary">Зберегти зміни</button>
+                <a href="/clients" class="btn btn-outline-secondary">Назад до списку</a>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

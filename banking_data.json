@@ -1,12 +1,6 @@
 {
     "clients": [
         {
-            "id": 1,
-            "first_name": "Іван",
-            "last_name": "Петренко",
-            "tax_id": "1234567890"
-        },
-        {
             "id": 2,
             "first_name": "Марія",
             "last_name": "Коваленко",
