@@ -1,0 +1,8 @@
+<ul class="list-group list-group-flush">
+    {% for acc in accounts %}
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+        <span>Рахунок #{{ acc.id }} ({{ acc.currency }})</span>
+        <span class="badge bg-primary rounded-pill">{{ acc.balance }}</span>
+    </li>
+    {% endfor %}
+</ul>
