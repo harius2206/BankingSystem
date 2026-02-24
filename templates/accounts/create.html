@@ -1,0 +1,43 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<h2>{{ title }}</h2>
+<hr />
+
+<div class="row">
+    <div class="col-md-6">
+        <form method="post">
+            {{ form.hidden_tag() }}
+
+            <div class="mb-3">
+                {{ form.client_id.label(class="form-label") }}
+                {% set c_class = "form-select is-invalid" if form.client_id.errors else "form-select" %}
+                {{ form.client_id(class=c_class) }}
+
+                {% for error in form.client_id.errors %}
+                    <div class="invalid-feedback">{{ error }}</div>
+                {% endfor %}
+                <div class="form-text">Оберіть клієнта, для якого відкривається рахунок.</div>
+            </div>
+
+            <div class="mb-3">
+                {{ form.currency.label(class="form-label") }}
+                {{ form.currency(class="form-select") }}
+            </div>
+
+            <div class="mb-3">
+                {{ form.balance.label(class="form-label") }}
+                {{ form.balance(class="form-control") }}
+                {% for error in form.balance.errors %}
+                    <div class="text-danger small">{{ error }}</div>
+                {% endfor %}
+            </div>
+
+            <div class="form-group mt-3">
+                <button type="submit" class="btn btn-success">Відкрити рахунок</button>
+                <a href="/clients" class="btn btn-outline-secondary">Скасувати</a>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

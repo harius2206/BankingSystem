@@ -6,22 +6,34 @@
 
 <div class="row">
     <div class="col-md-6">
-        <form action="/clients/edit/{{ model.id }}" method="post">
-            <input type="hidden" name="id" value="{{ model.id }}">
+        <form method="post">
+            {{ form.hidden_tag() }}
 
             <div class="mb-3">
-                <label for="first_name" class="form-label">Ім'я</label>
-                <input type="text" class="form-control" id="first_name" name="first_name" value="{{ model.first_name }}" required>
+                {{ form.first_name.label(class="form-label") }}
+                {% set f_class = "form-control is-invalid" if form.first_name.errors else "form-control" %}
+                {{ form.first_name(class=f_class) }}
+                {% for error in form.first_name.errors %}
+                    <div class="invalid-feedback">{{ error }}</div>
+                {% endfor %}
             </div>
 
             <div class="mb-3">
-                <label for="last_name" class="form-label">Прізвище</label>
-                <input type="text" class="form-control" id="last_name" name="last_name" value="{{ model.last_name }}" required>
+                {{ form.last_name.label(class="form-label") }}
+                {% set l_class = "form-control is-invalid" if form.last_name.errors else "form-control" %}
+                {{ form.last_name(class=l_class) }}
+                {% for error in form.last_name.errors %}
+                    <div class="invalid-feedback">{{ error }}</div>
+                {% endfor %}
             </div>
 
             <div class="mb-3">
-                <label for="tax_id" class="form-label">ІПН</label>
-                <input type="text" class="form-control" id="tax_id" name="tax_id" value="{{ model.tax_id }}" required>
+                {{ form.tax_id.label(class="form-label") }}
+                {% set t_class = "form-control is-invalid" if form.tax_id.errors else "form-control" %}
+                {{ form.tax_id(class=t_class) }}
+                {% for error in form.tax_id.errors %}
+                    <div class="invalid-feedback">{{ error }}</div>
+                {% endfor %}
             </div>
 
             <div class="form-group mt-3">
